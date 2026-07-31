@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>this is the title on the new tab part thingy hi hello hi</title>
+    </head>
+    <body>
+        <h1>Form</h1>
+        <p id="description">
+        hey guys so this is a form that takes your feedback on something something idk<br>
+        anyway pls give me your name and your honest review and i will tell you what type of feedback youve given(i know, insanely revolutionary)
+        </p>
+
+        <form onsubmit="return submitForm(event)">
+            Name:<br>
+            <input id="name" type="text"><br>
+            Feedback rating:<br>
+            <input id="rating" type="number"><br>
+
+            <button type="submit">Submit that shi</button>
+        </form>
+
+        <p id="output"></p>
+    </body>
+
+    <script>
+        function submitForm(event){
+            event.preventDefault();
+            let name=document.getElementById("name").value;
+            let feedback=document.getElementById("rating").value;
+
+            if(name===""){
+                let x=document.getElementById("output");
+                x.style.color='red';
+                x.innerHTML="Error: you dont have a name?!";
+            }
+            else if(feedback<1 || feedback>5){
+                let x=document.getElementById("output");
+                x.style.color='red';
+                x.innerHTML="Error: invalid rating dawg";
+            }
+            else{
+                let x=document.getElementById("output");
+                x.style.color='green';
+                x.innerHTML="yo man thanks for the rating @"+name+" you a real one for rating it "+feedback+" yo thats a hella rating bro so fire so fire";
+            }
+        }
+    </script>
+</html>
